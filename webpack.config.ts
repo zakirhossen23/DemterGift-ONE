@@ -77,35 +77,35 @@ export default (_: any, options: any): WebpackConfig => {
 
     config.plugins.push(
         new HtmlWebpackPlugin({
-            title: 'Demeter',
+            title: 'DemterGift',
             favicon: 'public/favicon.ico',
             filename: path.resolve(__dirname, 'dist/index.html'),
             template: 'public/index.html',
             inject: false,
         })
         , new HtmlWebpackPlugin({
-            title: 'Demeter - Donation',
+            title: 'DemterGift - Donation',
             favicon: 'public/favicon.ico',
             filename: path.resolve(__dirname, 'dist/donation/index.html'),
             template: 'public/index.html',
             inject: false,
         })
         , new HtmlWebpackPlugin({
-            title: 'Demeter - Login',
+            title: 'DemterGift - Login',
             favicon: 'public/favicon.ico',
             filename: path.resolve(__dirname, 'dist/login/index.html'),
             template: 'public/index.html',
             inject: false,
         })
         , new HtmlWebpackPlugin({
-            title: 'Demeter - Create Events',
+            title: 'DemterGift - Create Events',
             favicon: 'public/favicon.ico',
             filename: path.resolve(__dirname, 'dist/CreateEvents/index.html'),
             template: 'public/index.html',
             inject: false,
         })
         , new HtmlWebpackPlugin({
-            title: 'Demeter - Auction',
+            title: 'DemterGift - Auction',
             filename: path.resolve(__dirname, 'dist/donation/auction/index.html'),
             template: 'public/index.html',
             inject: false,
