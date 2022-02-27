@@ -10,9 +10,6 @@ import Router from 'next/router'
 import React from 'react';
 import { useRouter } from 'next/router';
 
-//*************** */ Wallet /********************/
-import { connectorsByName } from '../utils/connectors';
-
 
 declare let window: any;
 export default function CreateEvents() {

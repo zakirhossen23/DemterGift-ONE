@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
-import LOGINModal from '@/modals/login';
 
 export default function Home() {
 
@@ -38,7 +37,7 @@ export default function Home() {
 							textAlign: 'center',
 							cursor: 'pointer',
 							height: '73px',
-							color:'white',
+							color: 'white',
 							padding: '36px 0',
 							width: '100%',
 							margin: '0'
