@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useState } from 'react';
-
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import * as dotenv from 'dotenv';
@@ -10,6 +9,10 @@ import Button from 'react-bootstrap/Button';
 import Router from 'next/router'
 import React from 'react';
 import { useRouter } from 'next/router';
+
+//*************** */ Wallet /********************/
+import { connectorsByName } from '../utils/connectors';
+
 
 declare let window: any;
 export default function CreateEvents() {
@@ -97,19 +100,6 @@ export default function CreateEvents() {
                             </div>
 
                         </div>
-
-                        <div style={{ display: "flex", padding: "10px", borderRadius: "5px", cursor: "pointer", margin: "20px 0" }} className="btn-primary">
-                            <img style={{ height: "45px", width: "46px" }} src="https://polis.metis.io/static/img/polis-trans.9c0be85f.png" />
-                            <div style={{ display: "flex", flexDirection: "column", marginLeft: "11px" }}>
-                                <span style={{ fontWeight: "bolder", fontFamily: "sans-serif" }}>
-                                    Metis Polis
-                                </span>
-                                <span style={{ fontSize: "15px", fontFamily: "sans-serif" }}>
-                                    Connect With Polis account
-                                </span>
-                            </div>
-                        </div>
-
 
                     </div>
                 </Col>

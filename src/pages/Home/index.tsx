@@ -38,6 +38,7 @@ export default function Home() {
 							textAlign: 'center',
 							cursor: 'pointer',
 							height: '73px',
+							color:'white',
 							padding: '36px 0',
 							width: '100%',
 							margin: '0'

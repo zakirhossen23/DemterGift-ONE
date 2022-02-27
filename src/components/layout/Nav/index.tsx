@@ -5,11 +5,13 @@ import { NavLink } from 'react-router-dom'
 import { Button, Grid, makeStyles } from "@material-ui/core";
 import './index.scss'
 import Router from 'next/router'
+import { useHarmony } from '@/context/harmonyContext';
 
 import * as nearAPI from "near-api-js"
 import getConfig from "@/config"
 
 export function Nav(): JSX.Element {
+    const { balance, fetchBalance, resetBalance } = useHarmony();
     const [acc, setAcc] = useState('');
     const [NearBalance, setNearBalance] = useState('');
     const [isSigned, setSigned] = useState(false);
@@ -17,27 +19,18 @@ export function Nav(): JSX.Element {
         var booltrue = true;
         while (booltrue) {
             try {
-                console.log(window.walletAccount.isSignedIn())
+                console.log(window.ethereum.isConnected())
                 break;
             } catch (ex) {
-                // Initializing connection to the NEAR node.
-                window.near = await nearAPI.connect(Object.assign({ deps: { keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore() } }, nearConfig));
-
-                // Initializing Wallet based Account. It can work with NEAR TestNet wallet that
-                // is hosted at https://wallet.testnet.near.org
-                window.walletAccount = new nearAPI.WalletAccount(window.near);
-
-
+               
                 continue;
             };
         }
-        if (window.walletAccount.isSignedIn() == true) {
-            let accoun = await near.account(window.walletAccount.getAccountId());
-            await setAcc(window.walletAccount.getAccountId());
-            var Balance = await accoun.getAccountBalance();
-            let price = await Number(Balance.total / 1000000000000000000000000);
-
-            setNearBalance(price.toString());
+        if (window.ethereum.isConnected() == true) {
+            let accoun = window.ethereum.selectedAddress;
+            await setAcc(`${window.ethereum.selectedAddress.substring(0,25)}...`);
+            fetchBalance(accoun);
+           // setNearBalance(balance.toString());
             setSigned(true);
             window.document.getElementById("withoutSign").style.display = "none";
             window.document.getElementById("withSign").style.display = "";
@@ -130,10 +123,10 @@ export function Nav(): JSX.Element {
                                         {acc}
                                     </div>
                                     <div className="wallet__balance" style={{ color: "rgb(236 190 33 / 50%)", fontSize: 12, letterSpacing: "0.6px" }}>
-                                        {NearBalance} NEAR
+                                        {NearBalance} ONE
                                     </div>
                                 </div>
-                                <button type="button" onClick={() => { window.localStorage.setItem("Type", ""); window.walletAccount.signOut(); window.location.reload() }} className="btn btn-logout" style={{ padding: 0 }}>
+                                {/* <button type="button" onClick={() => { window.localStorage.setItem("Type", ""); window.walletAccount.signOut(); window.location.reload() }} className="btn btn-logout" style={{ padding: 0 }}>
                                     <span className="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height={32} width={32} style={{ fill: "rgb(197, 228, 243)" }}>
                                             <path
@@ -143,7 +136,7 @@ export function Nav(): JSX.Element {
                                             />
                                         </svg>
                                     </span>
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </div>
