@@ -439,8 +439,8 @@
       ]
     },
     "C:\\Users\\zakir\\Documents\\tonswap-frontend-master\\DemterGift-ONE\\contracts\\contracts\\HarmonyERC721.sol": {
-      "lastModificationDate": 1645922166737,
-      "contentHash": "81f8e189e75ab933646405e1a2006cd6",
+      "lastModificationDate": 1645975606946,
+      "contentHash": "a9efaa54d1740d610510c531d5670482",
       "sourceName": "contracts/HarmonyERC721.sol",
       "solcConfig": {
         "version": "0.8.6",
